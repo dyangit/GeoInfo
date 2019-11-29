@@ -1,0 +1,705 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.361538,
+          -86.279118
+        ]
+      },
+      "properties": {
+        "State": "Alabama",
+        "Capital": "Montgomery"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          58.301935,
+          -134.41974
+        ]
+      },
+      "properties": {
+        "State": "Alaska",
+        "Capital": "Juneau"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.448457,
+          -112.073844
+        ]
+      },
+      "properties": {
+        "State": "Arizona",
+        "Capital": "Phoenix"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.736009,
+          -92.331122
+        ]
+      },
+      "properties": {
+        "State": "Arkansas",
+        "Capital": "Little Rock"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.555605,
+          -121.468926
+        ]
+      },
+      "properties": {
+        "State": "California",
+        "Capital": "Sacramento"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.7391667,
+          -104.984167
+        ]
+      },
+      "properties": {
+        "State": "Colorado",
+        "Capital": "Denver"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.767,
+          -72.677
+        ]
+      },
+      "properties": {
+        "State": "Connecticut",
+        "Capital": "Hartford"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.161921,
+          -75.526755
+        ]
+      },
+      "properties": {
+        "State": "Delaware",
+        "Capital": "Dover"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4518,
+          -84.27277
+        ]
+      },
+      "properties": {
+        "State": "Florida",
+        "Capital": "Tallahassee"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.76,
+          -84.39
+        ]
+      },
+      "properties": {
+        "State": "Georgia",
+        "Capital": "Atlanta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.30895,
+          -157.826182
+        ]
+      },
+      "properties": {
+        "State": "Hawaii",
+        "Capital": "Honolulu"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.613739,
+          -116.237651
+        ]
+      },
+      "properties": {
+        "State": "Idaho",
+        "Capital": "Boise"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.78325,
+          -89.650373
+        ]
+      },
+      "properties": {
+        "State": "Illinois",
+        "Capital": "Springfield"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.790942,
+          -86.147685
+        ]
+      },
+      "properties": {
+        "State": "Indiana",
+        "Capital": "Indianapolis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.590939,
+          -93.620866
+        ]
+      },
+      "properties": {
+        "State": "Iowa",
+        "Capital": "Des Moines"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.04,
+          -95.69
+        ]
+      },
+      "properties": {
+        "State": "Kansas",
+        "Capital": "Topeka"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.197274,
+          -84.86311
+        ]
+      },
+      "properties": {
+        "State": "Kentucky",
+        "Capital": "Frankfort"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.45809,
+          -91.140229
+        ]
+      },
+      "properties": {
+        "State": "Louisiana",
+        "Capital": "Baton Rouge"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.323535,
+          -69.765261
+        ]
+      },
+      "properties": {
+        "State": "Maine",
+        "Capital": "Augusta"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.972945,
+          -76.501157
+        ]
+      },
+      "properties": {
+        "State": "Maryland",
+        "Capital": "Annapolis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.2352,
+          -71.0275
+        ]
+      },
+      "properties": {
+        "State": "Massachusetts",
+        "Capital": "Boston"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.7335,
+          -84.5467
+        ]
+      },
+      "properties": {
+        "State": "Michigan",
+        "Capital": "Lansing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.95,
+          -93.094
+        ]
+      },
+      "properties": {
+        "State": "Minnesota",
+        "Capital": "Saint Paul"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.32,
+          -90.207
+        ]
+      },
+      "properties": {
+        "State": "Mississippi",
+        "Capital": "Jackson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.572954,
+          -92.189283
+        ]
+      },
+      "properties": {
+        "State": "Missouri",
+        "Capital": "Jefferson City"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          46.595805,
+          -112.027031
+        ]
+      },
+      "properties": {
+        "State": "Montana",
+        "Capital": "Helana"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.809868,
+          -96.675345
+        ]
+      },
+      "properties": {
+        "State": "Nebraska",
+        "Capital": "Lincoln"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.160949,
+          -119.753877
+        ]
+      },
+      "properties": {
+        "State": "Nevada",
+        "Capital": "Carson City"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.220093,
+          -71.549127
+        ]
+      },
+      "properties": {
+        "State": "New Hampshire",
+        "Capital": "Concord"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.221741,
+          -74.756138
+        ]
+      },
+      "properties": {
+        "State": "New Jersey",
+        "Capital": "Trenton"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.667231,
+          -105.964575
+        ]
+      },
+      "properties": {
+        "State": "New Mexico",
+        "Capital": "Santa Fe"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.659829,
+          -73.781339
+        ]
+      },
+      "properties": {
+        "State": "New York",
+        "Capital": "Albany"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.771,
+          -78.638
+        ]
+      },
+      "properties": {
+        "State": "North Carolina",
+        "Capital": "Raleigh"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.813343,
+          -100.779004
+        ]
+      },
+      "properties": {
+        "State": "North Dakota",
+        "Capital": "Bismarck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.962245,
+          -83.000647
+        ]
+      },
+      "properties": {
+        "State": "Ohio",
+        "Capital": "Columbus"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.482309,
+          -97.534994
+        ]
+      },
+      "properties": {
+        "State": "Oklahoma",
+        "Capital": "Oklahoma City"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.931109,
+          -123.029159
+        ]
+      },
+      "properties": {
+        "State": "Oregon",
+        "Capital": "Salem"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.269789,
+          -76.875613
+        ]
+      },
+      "properties": {
+        "State": "Pennsylvania",
+        "Capital": "Harrisburg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.82355,
+          -71.422132
+        ]
+      },
+      "properties": {
+        "State": "Rhode Island",
+        "Capital": "Providence"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34,
+          -81.035
+        ]
+      },
+      "properties": {
+        "State": "South Carolina",
+        "Capital": "Columbia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.367966,
+          -100.336378
+        ]
+      },
+      "properties": {
+        "State": "South Dakota",
+        "Capital": "Pierre"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.165,
+          -86.784
+        ]
+      },
+      "properties": {
+        "State": "Tennessee",
+        "Capital": "Nashville"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.266667,
+          -97.75
+        ]
+      },
+      "properties": {
+        "State": "Texas",
+        "Capital": "Austin"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.7547,
+          -111.892622
+        ]
+      },
+      "properties": {
+        "State": "Utah",
+        "Capital": "Salt Lake City"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          44.26639,
+          -72.57194
+        ]
+      },
+      "properties": {
+        "State": "Vermont",
+        "Capital": "Montpelier"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.54,
+          -77.46
+        ]
+      },
+      "properties": {
+        "State": "Virginia",
+        "Capital": "Richmond"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          47.042418,
+          -122.893077
+        ]
+      },
+      "properties": {
+        "State": "Washington",
+        "Capital": "Olympia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.349497,
+          -81.633294
+        ]
+      },
+      "properties": {
+        "State": "West Virginia",
+        "Capital": "Charleston"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.074722,
+          -89.384444
+        ]
+      },
+      "properties": {
+        "State": "Wisconsin",
+        "Capital": "Madison"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.145548,
+          -104.802042
+        ]
+      },
+      "properties": {
+        "State": "Wyoming",
+        "Capital": "Cheyenne"
+      }
+    }
+  ]
+}
