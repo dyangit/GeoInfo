@@ -74,9 +74,10 @@ export class MapComponent implements OnInit {
         error: function(error) {
           $("#loaded").html("&#10060;");
         },
-        headers: {
-          'Access-Control-Allow-Origin' : 'Content-Type',
-        }
+        // headers: {
+        //   'Access-Control-Allow-Origin' : '*',
+        // },
+        crossDomain : true
       });
       var popLocation = e.latlng;
       console.log(JSON.stringify(weatherCopy.getWeatherFromLatLon(e.latlng.lat, e.latlng.lng)));
