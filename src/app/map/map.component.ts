@@ -2,7 +2,11 @@ import { WeatherService } from './../services/weather.service';
 import { MarkerService } from './../services/marker.service';
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import * as L from 'leaflet';
+import * as $ from 'jquery';
 
+// UUID configuration
+const uuidv4 = require('uuid/v4');
+const username = 'daniel';
 
 // Setting marker
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -52,11 +56,29 @@ export class MapComponent implements OnInit {
     // copy of current map
     var mapCopy = this.map;
     var weatherCopy = this.weather;
-    if(this.map)
     this.map.on('click', function(e) {
       // console.log(e);     
+      $.ajax({
+        url: 'https://hfzw9aa9dl.execute-api.us-west-2.amazonaws.com/prod/logging-function?username=' + username 
+        + '&longitude=' 
+        + e.latlng.lng + '&latitude=' 
+        + e.latlng + '&PID=' 
+        + uuidv4(),
+        success: function(result) {
+          $("#loaded").html("&#9989;");
+          $("#cleared").html("");
+        },
+        error: function(error) {
+          $("#loaded").html("&#10060;");
+        },
+        headers: {
+          'Access-Control-Allow-Origin' : 'Content-Type',
+        }
+      });
       var popLocation = e.latlng;
       console.log(JSON.stringify(weatherCopy.getWeatherFromLatLon(e.latlng.lat, e.latlng.lng)));
+      console.log(weatherCopy);
+      console.log(uuidv4());
       L.popup()
       .setLatLng(popLocation)
         .setContent(`<b>You clicked on [${e.latlng.lat}, ${e.latlng.lng}] </b>`)
