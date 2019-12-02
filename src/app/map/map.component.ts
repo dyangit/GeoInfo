@@ -4,6 +4,9 @@ import { Component, OnInit, AfterViewInit} from '@angular/core';
 import * as L from 'leaflet';
 import * as $ from 'jquery';
 
+// Typings aren't working too well
+declare var require: any
+
 // UUID configuration
 const uuidv4 = require('uuid/v4');
 const username = 'daniel';
