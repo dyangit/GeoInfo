@@ -6,7 +6,7 @@ const app = express();
 const appname = 'geoinfo';
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/' + appname + '>'));
+app.use(express.static(__dirname + '/dist/' + appname));
 
 app.get('/*', function(req,res) {
     
