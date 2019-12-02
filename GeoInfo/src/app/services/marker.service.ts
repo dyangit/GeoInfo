@@ -1,3 +1,4 @@
+import { WeatherService } from './weather.service';
 import { PopupService } from './popup.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +12,8 @@ export class MarkerService {
   // Generated geojson of US state capitals, based off https://xfront.com/us_states/
   capitals: string = '/assets/geojson_data/us_capital_lat_long.geojson';
   
-  constructor(private http: HttpClient, private popup : PopupService) {
+  constructor(private http: HttpClient,
+     private popup : PopupService) {
   }
   
   // If we have a population field this could be used

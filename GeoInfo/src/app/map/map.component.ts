@@ -1,3 +1,4 @@
+import { WeatherService } from './../services/weather.service';
 import { MarkerService } from './../services/marker.service';
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import * as L from 'leaflet';
@@ -26,7 +27,8 @@ L.Marker.prototype.options.icon = iconDefault;
 })
 export class MapComponent implements OnInit {
   private map;
-  constructor(private marker : MarkerService) {
+  constructor(private marker : MarkerService,
+              private weather : WeatherService) {
 
   }
 
@@ -46,14 +48,17 @@ export class MapComponent implements OnInit {
     tiles.addTo(this.map);
     this.marker.makeCapitalMarkers(this.map);
     //console.log(this.map);
+    //console.log(this.weather.APIKEY);
     // copy of current map
     var mapCopy = this.map;
+    var weatherCopy = this.weather;
     if(this.map)
     this.map.on('click', function(e) {
-        // console.log(e);     
-        var popLocation= e.latlng;
-        L.popup()
-        .setLatLng(popLocation)
+      // console.log(e);     
+      var popLocation = e.latlng;
+      console.log(JSON.stringify(weatherCopy.getWeatherFromLatLon(e.latlng.lat, e.latlng.lng)));
+      L.popup()
+      .setLatLng(popLocation)
         .setContent(`<b>You clicked on [${e.latlng.lat}, ${e.latlng.lng}] </b>`)
         .openOn(mapCopy);        
       });
