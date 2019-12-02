@@ -15,6 +15,5 @@ export class PopupService {
       `<div> <b>Capital:</b> ${ data.properties.Capital }</div>` +
       `<div> <b>State:</b> ${ data.properties.State }</div>` +
       `<div> <b>Lat/Long:</b> [${ data.geometry.coordinates[0] }, ${ data.geometry.coordinates[1] }] </div>`
-      // `<div>Population: ${ data.population }</div>`
   }
 }

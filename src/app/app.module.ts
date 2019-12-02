@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule
   ],
   providers: [
-    MarkerService
+    MarkerService,
   ],
   bootstrap: [AppComponent]
 })

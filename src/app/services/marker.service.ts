@@ -1,4 +1,3 @@
-import { WeatherService } from './weather.service';
 import { PopupService } from './popup.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
