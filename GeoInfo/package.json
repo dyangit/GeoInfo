@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
+    "deploy": "git push origin master && git push heroku master",
     "build": "ng build",
     "test": "ng test",
     "postinstall": "ng build --aot -prod",
