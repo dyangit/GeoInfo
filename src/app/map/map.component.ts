@@ -40,7 +40,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log("map component init");
+    // console.log("map component init");
   }
   
   ngAfterViewInit(){
@@ -69,20 +69,13 @@ export class MapComponent implements OnInit, AfterViewInit {
         crossDomain : true
       });
 
-      console.log(this.weather);
+      // console.log(this.weather);
       this.weather.getWeatherFromLatLon();
       L.popup()
         .setLatLng(e.latlng)
-        .setContent(`<b>You clicked on [${e.latlng.lat}, ${e.latlng.lng}] </b> 
+        .setContent(`<b>[Lat/Long]<br>[${e.latlng.lat}, ${e.latlng.lng}] </b> 
         <br> ${this.isNullEmptyOrUndefined(this.weather.getWeatherData())  ?
-           `You have found this for the weather data: <br>` 
-           + `<b>Name:</b> ${this.weather.getWeatherData().name}<br>`
-           + `<b>Weather type:</b> ${this.weather.getWeatherData().weather[0].description}<br>`
-           + `<b>Temperature:</b> ${this.weather.getWeatherData().main.temp}<br>`
-           + `<b>Pressure:</b> ${this.weather.getWeatherData().main.pressure}<br>`
-           + `<b>Humidity:</b> ${this.weather.getWeatherData().main.humidity}<br>`
-           + `<b>Wind:</b> ${this.weather.getWeatherData().wind.speed}<br>`
-            : 'Weather data is not defined'}`
+            this.printWeather()  : 'Weather data is not defined'}`
         )
         .openOn(this.map);        
       });
@@ -113,5 +106,30 @@ export class MapComponent implements OnInit, AfterViewInit {
      
      tiles.addTo(this.map);
      this.marker.makeCapitalMarkers(this.map);
+  }
+
+  // Print particular weather attributes
+  private printWeather() : string {
+    var weatherInfo = `<br>The following information has been retrieved:<br><br>`;
+
+    if(this.weather.getWeatherData().name){
+      weatherInfo += `<b>Name:</b> ${this.weather.getWeatherData().name}<br>`;
+    }
+    if(this.weather.getWeatherData().weather[0].description){
+      weatherInfo += `<b>Weather type:</b> ${this.weather.getWeatherData().weather[0].description}<br>`
+    }
+    if(this.weather.getWeatherData().main.temp){
+      weatherInfo += `<b>Temperature:</b> ${this.weather.getWeatherData().main.temp} °F<br>`
+    }
+    if(this.weather.getWeatherData().main.pressure){
+      weatherInfo += `<b>Pressure:</b> ${this.weather.getWeatherData().main.pressure} hPa<br>`
+    }
+    if(this.weather.getWeatherData().main.humidity){
+      weatherInfo += `<b>Humidity:</b> ${this.weather.getWeatherData().main.humidity} %<br>`
+    }
+    if(this.weather.getWeatherData().wind.speed){
+      weatherInfo += `<b>Wind:</b> ${this.weather.getWeatherData().wind.speed} mph<br>`;
+    }
+    return weatherInfo;
   }
 }

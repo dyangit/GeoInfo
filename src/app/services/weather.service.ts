@@ -23,7 +23,7 @@ export class WeatherService  {
   }
 
   getWeatherFromLatLon()  {
-    console.log('center: ' + this.coordinateVals);
+    // console.log('center: ' + this.coordinateVals);
     var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' 
     + this.coordinateVals[0] + '&lon=' + this.coordinateVals[1] + '&units=imperial&' + this.APIKEY;
     
@@ -40,8 +40,8 @@ export class WeatherService  {
         console.log('error in http get ')
       },
       complete: () => {
-        if(this.weatherData)
-          console.log('weatherData: ' + JSON.stringify(this.weatherData));
+        // if(this.weatherData)
+        //   console.log('weatherData: ' + JSON.stringify(this.weatherData));
       },
     });
   }
