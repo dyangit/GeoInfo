@@ -7,7 +7,7 @@
     "start": "node server.js",
     "deploy": "git push origin master && git push heroku master",
     "test": "ng test",
-    "heroku-postbuild": "ng build --aot --prod",
+    "heroku-postbuild": "ng build --prod --base-href",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
