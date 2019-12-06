@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Hi, <b>{{data.name}}</b></h1>
+<div mat-dialog-content>
+  <p>Enter the username you wish to login with </p>
+  <mat-form-field class="input-width">
+    <input matInput placeholder="Set username" [(ngModel)]="userValue" matTooltip='Enter a username to store searches for that username'> 
+    <button mat-button *ngIf='userValue' matSuffix mat-icon-button aria-label="Checkmark" (click)="setUsername(userValue)">
+        <mat-icon matTooltip='Apply username'>checkmark</mat-icon>
+    </button>
+    <button mat-button *ngIf='userValue' matSuffix mat-icon-button aria-label="Clear" (click)="userValue=''">
+        <mat-icon matTooltip='Clear search'>close</mat-icon>
+    </button>
+</mat-form-field>
+    <button mat-raised-button color="warn" matTooltip='Sets username to default value' (click)="defaultUsername()">Logout user</button>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" matTooltip='Close dialog box' (click)="onNoClick()">Close dialog</button>
+</div>

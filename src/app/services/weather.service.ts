@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ReversegeosearchService } from './reversegeosearch.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,6 +10,7 @@ export class WeatherService  {
   public coordinateVals = [ 42.877742, -97.380979 ];
 
   constructor(private http : HttpClient) {
+
     this.http.get(this.APIKEY).subscribe({
       next: (res: any) => {
         this.APIKEY = res.APIKEY

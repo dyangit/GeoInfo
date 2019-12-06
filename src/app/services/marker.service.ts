@@ -28,19 +28,21 @@ export class MarkerService {
       for (const c of res.features) {
         const lat = c.geometry.coordinates[0];
         const long = c.geometry.coordinates[1];
-        // Add each marker to map
         
+
+        //// TODO add boolean switch for marker type
         // Marker types
-        // const marker = L.marker([lat, long]).addTo(map);
-        // Check if the population val was used or not
-        (maxVal) ? radiusVal = MarkerService.scaledRadius(c.properties.population, radiusVal) : radiusVal = 10;
-        const circleMarker = L.circleMarker([lat, long], {
-          radius: radiusVal
-        }).addTo(map);
+         const marker = L.marker([lat, long]).addTo(map);
+         marker.bindPopup(this.popup.makeCapitalPopup(c));
+         marker.addTo(map);
 
-        circleMarker.bindPopup(this.popup.makeCapitalPopup(c));
-
-        circleMarker.addTo(map);
+        //  // Check if the population val was used or not
+        // (maxVal) ? radiusVal = MarkerService.scaledRadius(c.properties.population, radiusVal) : radiusVal = 10;
+        // const circleMarker = L.circleMarker([lat, long], {
+        //   radius: radiusVal
+        // }).addTo(map);
+        // circleMarker.bindPopup(this.popup.makeCapitalPopup(c));
+        // circleMarker.addTo(map);
         // console.log('Lat: {0} Long: {1}', lat, long);
       }
     });

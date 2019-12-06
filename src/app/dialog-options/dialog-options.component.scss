@@ -1,0 +1,13 @@
+.input-width{
+    width: 80%
+}
+// Set tool tip size
+::ng-deep .mat-tooltip {
+    font-size: 14px;
+  }
+
+  .mat-raised-button {
+    display: block;            
+    width: 100%;
+    text-align: center;
+  }
