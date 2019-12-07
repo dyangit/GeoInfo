@@ -1,7 +1,6 @@
-import { SnackbarService } from './../services/snackbar.service';
 import { Component, OnInit, AfterViewInit} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 
+import { SnackbarService } from './../services/snackbar.service';
 import { UsernameService } from './../services/username.service';
 import { WeatherService } from './../services/weather.service';
 import { MarkerService } from './../services/marker.service';
@@ -13,6 +12,7 @@ import { LoginComponent } from '../login/login.component';
 import * as L from 'leaflet';
 import * as $ from 'jquery';
 import { Observable,  forkJoin } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
 // Stomp require typings issue
 declare var require: any;
@@ -130,6 +130,7 @@ loginUser(){
         //   // zoom the map to the polyline
         //   //this.map.fitBounds(polyline.getBounds());
         // }
+
        }),
        err => {
          this.snackBarService.openSnackBar('Error in calling mouse click');
@@ -137,6 +138,7 @@ loginUser(){
       });
   }
 
+  // Weather data is a lot more likely to be defined comparative to geodata, so weather is checked
   makePopup(e) : any{
   return   L.popup()
           .setLatLng(e.latlng)
@@ -181,7 +183,7 @@ loginUser(){
      this.marker.makeCapitalMarkers(this.map);
   }
 
-  // Prints
+  // Prints for popups
 
   // Print particular weather attributes
   private printWeather() : string {
