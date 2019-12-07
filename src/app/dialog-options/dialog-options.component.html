@@ -13,7 +13,7 @@
 </mat-form-field>
 <mat-form-field class="input-width">
     <input matInput placeholder="DELETE username history" [(ngModel)]="deleteValue" matTooltip='Enter a username to DELETE stored searches for that username'> 
-    <button mat-button *ngIf='deleteValue' matSuffix mat-icon-button aria-label="Search" (click)="deleteLogsByUsername(getValue)">
+    <button mat-button *ngIf='deleteValue' matSuffix mat-icon-button aria-label="Search" (click)="deleteLogsByUsername(deleteValue)">
             <mat-icon matTooltip='Apply search'>search</mat-icon>
     </button>    
     <button mat-button *ngIf='deleteValue' matSuffix mat-icon-button aria-label="Clear" (click)="deleteValue=''">
