@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ export class ReversegeosearchService {
   private geoData : any;
   private coords : any[];
   
-  constructor(private http : HttpClient) {
+  constructor(private http : HttpClient,
+              private snackBarService : SnackbarService) {
     this.geoData = [];
     this.coords = [ 42.877742, -97.380979 ];
     this.geoReverseHTTPGet();
@@ -23,7 +25,8 @@ export class ReversegeosearchService {
         this.geoData = JSON.parse(JSON.stringify(data));
       },
       error: () => {
-        console.log('error in http get ');
+        this.snackBarService.openSnackBar('Error in HTTP GET for geo search data');
+        console.log('error in HTTP get for geo search data');
       },
       complete: () => {
         //console.log('finished getting geodata');

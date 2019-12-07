@@ -4,8 +4,11 @@
         Currently logged in as: <b>{{this.usernameService.username}}</b>
       </div>
       <div class="leaflet-top leaflet-right">
-          <button mat-raised-button color="primary" (click)="loginUser()"> Login </button>
-          <button mat-raised-button color="primary" (click)="openOptions()"> Options </button>
+          <button mat-raised-button color="primary" (click)="loginUser()" matTooltip='This button is to change usernames. Click on the help button for more information'> Login </button>
+          <button mat-raised-button color="primary" (click)="openOptions()"  matTooltip='This button is to select user options. Click on the help button for more information' > Options </button>
+          <button mat-raised-button color="primary" matSuffix mat-icon-button aria-label="Help" (click)="openHelp()">
+              <mat-icon matTooltip='Need help? Click me!'>help</mat-icon>
+          </button>
       </div>
       <div id="map"></div>
     </div>

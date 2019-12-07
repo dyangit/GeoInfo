@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +10,18 @@ export class WeatherService  {
   private weatherData : any;
   public coordinateVals = [ 42.877742, -97.380979 ];
 
-  constructor(private http : HttpClient) {
+  constructor(private http : HttpClient,
+              private snackbarService : SnackbarService) {
     this.http.get(this.APIKEY).subscribe({
       next: (res: any) => {
         this.APIKEY = res.APIKEY
       },
       error: () => {
-        console.log('error in http client')
+        this.snackbarService.openSnackBar('Error in loading http client for API key');
+        console.log('error in loading http client for API key')
       },
       complete: () => {
-          this.weatherHTTPGet();
+        this.weatherHTTPGet();
       },
     });
   }
@@ -32,7 +35,8 @@ export class WeatherService  {
         this.weatherData = JSON.parse(JSON.stringify(data));
       },
       error: () => {
-        console.log('error in http get ')
+        this.snackbarService.openSnackBar('Error in loading HTTP GET for weather data');
+        console.log('error in http get for weather data');
       },
       complete: () => {
         //  console.log('finished getting weather');

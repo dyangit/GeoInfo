@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 // Others
 import 'hammerjs';
 import { SearchHistoryDialogComponent } from './search-history-dialog/search-history-dialog.component';
+import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,13 @@ import { SearchHistoryDialogComponent } from './search-history-dialog/search-his
     DialogOptionsComponent,
     LoginComponent,
     SearchHistoryDialogComponent,
+    HelpDialogComponent
   ],
   entryComponents:[
     DialogOptionsComponent,
     LoginComponent,
-    SearchHistoryDialogComponent
+    SearchHistoryDialogComponent,
+    HelpDialogComponent
   ],
   imports: [
     FormsModule,

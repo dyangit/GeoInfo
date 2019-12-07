@@ -1,12 +1,9 @@
-import { SnackbarService } from './../services/snackbar.service';
 import { Component, OnInit, Inject} from '@angular/core';
 import { SearchHistoryDialogComponent } from '../search-history-dialog/search-history-dialog.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SnackbarService } from './../services/snackbar.service';
+import { DialogData } from '../login/login.component'
 import * as $ from 'jquery';
-
-export interface DialogData {
-  name: string;
-}
 
 export interface SearchResultData {
   username: string;

@@ -1,18 +1,23 @@
+// Angular imports
 import { Component, OnInit, AfterViewInit} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
+// Services
 import { SnackbarService } from './../services/snackbar.service';
 import { UsernameService } from './../services/username.service';
 import { WeatherService } from './../services/weather.service';
 import { MarkerService } from './../services/marker.service';
 import { ReversegeosearchService } from '../services/reversegeosearch.service';
 
+// Dialogs
 import { DialogOptionsComponent } from '../dialog-options/dialog-options.component';
 import { LoginComponent } from '../login/login.component';
+import { HelpDialogComponent } from '../help-dialog/help-dialog.component';
 
+// Other imports
 import * as L from 'leaflet';
 import * as $ from 'jquery';
 import { Observable,  forkJoin } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
 
 // Stomp require typings issue
 declare var require: any;
@@ -73,6 +78,18 @@ openOptions(): void {
 loginUser(){
   const dialogRef = this.dialog.open(LoginComponent, {
     width: '400px',
+    data: {
+      name: this.usernameService.username
+    }
+  });
+  // After closed result
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
+
+openHelp(){
+  const dialogRef = this.dialog.open(HelpDialogComponent, {
+    width: '800px',
     data: {
       name: this.usernameService.username
     }

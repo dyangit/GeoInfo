@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Hi, <b>{{data.name}}</b>. This is the <b>help</b> dialog</h1>
+<div mat-dialog-content>
+    <h1> Overview </h1>
+    <ul>
+        <li> <b>GeoInfo</b> is application that allows the user to receive helpful data based on the region where they click on the map. </li>
+        <li>On each each click, the user should receive a popup notification showing the retrieved latitude and longitude, current data for that point, and geodata address. </li>
+        <li>Additionally for each click the user makes, based on the username, the query is stored in AWS services and is retrievable or deletable as the user wishes.</li>
+    </ul>
+    <h1> Features </h1>
+    <h2> Username Login </h2>
+    <p> To change the username that you wish to store in the search history, click the Login button the map, which has this appearance: </p>
+    <button mat-raised-button color="primary" matTooltip='This button is just for demonstration'> Login </button>
+    <h2> User Options</h2>
+    <p> To view the user search history, or delete the user search history, click the Options button the map, which has this appearance: </p>
+    <button mat-raised-button color="primary" matTooltip='This button is just for demonstration'> Options </button>
+    <p> Both options have tooltip hover boxes to further give additional information as needed for each of the options they provide.</p>
+</div>
