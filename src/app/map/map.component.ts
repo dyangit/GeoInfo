@@ -1,3 +1,4 @@
+import { SnackbarService } from './../services/snackbar.service';
 import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -11,6 +12,7 @@ import { LoginComponent } from '../login/login.component';
 
 import * as L from 'leaflet';
 import * as $ from 'jquery';
+import { Observable,  forkJoin } from 'rxjs';
 
 // Stomp require typings issue
 declare var require: any;
@@ -41,13 +43,14 @@ L.Marker.prototype.options.icon = iconDefault;
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit, AfterViewInit {
-  private numClicks = 0;
   private map;
-  constructor(private marker : MarkerService,
+
+  constructor(private dialog : MatDialog,
               private weather : WeatherService,
               private georeverse : ReversegeosearchService,
               public usernameService : UsernameService,
-              private dialog : MatDialog) {}
+              private snackBarService : SnackbarService,
+              private marker : MarkerService) {}
 
   ngOnInit() {
     // console.log("map component init");
@@ -83,7 +86,6 @@ loginUser(){
   ngAfterViewInit(){
     this.loadMap();
     this.map.on('click', (e) => {
-      this.numClicks++;  
       this.weather.coordinateVals = [e.latlng.lat, e.latlng.lng];
       this.georeverse.setCoords(this.weather.coordinateVals);
 
@@ -91,10 +93,9 @@ loginUser(){
       var self = this;
       
       //// Debug logs!
-      //console.log(e);     
-      //console.log(uuidv4());
+      // console.log(e);     
 
-      // AJAX call for user attribute logging
+      //AJAX call for user attribute logging
       $.ajax({
         url: 'https://hfzw9aa9dl.execute-api.us-west-2.amazonaws.com/prod/logging-function?username=' + self.usernameService.username 
         + '&longitude=' 
@@ -112,38 +113,47 @@ loginUser(){
         crossDomain : true
       });
 
-      // $.ajax({
-      //     url: `${self.weather.getWeatherFromLatLon()} ${self.georeverse.getGeoReverseFromLatLon()}`,
-      //     async: true,
-      //     success: function(){
-      //     L.popup()
-      //     .setLatLng(e.latlng)
-      //     .setContent(
-      //         `<br>numClicks: ${self.numClicks}<br><b>[Lat/Long]<br>[${e.latlng.lat}, ${e.latlng.lng}] </b> 
-      //         <br> ${self.isNullEmptyOrUndefined(self.weather.getWeatherData())  ?
-      //         `${self.printWeather()} <br> ${self.printGeoData()}` : 'Weather data is not defined'}`
-      //       )
-      //     .openOn(self.map)        
-      //   }
-      // });
+       this.getAPIData().subscribe( res => {
+        this.map.openPopup(this.makePopup(e));
 
-      // console.log(this.weather);
-      //console.log(this.georeverse.getGeoData())
-      //this.weather.getWeatherFromLatLon();
-      //this.georeverse.getGeoReverseFromLatLon();
-      // console.log(this.georeverse.getCoords());
-      this.weather.getWeatherFromLatLon();
-      this.georeverse.getGeoReverseFromLatLon();
-      L.popup()
-        .setLatLng(e.latlng)
-        .setContent(`<br>numClicks: ${this.numClicks}<br><b>[Lat/Long]<br>[${e.latlng.lat}, ${e.latlng.lng}] </b> 
-        <br> ${this.isNullEmptyOrUndefined(this.weather.getWeatherData())  ?
-            `${this.printWeather()} <br> ${this.printGeoData()}` : 'Weather data is not defined'}`
-        )
-        .openOn(this.map);        
+        // This draws a red polygon line from the end of the map to clicked point
+        // console.log(this.georeverse.getGeoData().boundingbox);
+        // if(this.georeverse.getGeoData().boundingbox) {
+        //   var latlngs = [];
+        //   for (var i = 0; i < this.georeverse.getGeoData().boundingbox.length; i++) {
+        //     latlngs.push(L.latLng(Number(this.georeverse.getGeoData().boundingbox[i]), this.georeverse.getGeoData().lon));
+        //   }
+        //   latlngs.forEach(element => {
+        //       console.log(element);
+        //   });
+        //   var polyline = L.polyline(latlngs, {color: 'red'}).addTo(this.map);
+        //   // zoom the map to the polyline
+        //   //this.map.fitBounds(polyline.getBounds());
+        // }
+       }),
+       err => {
+         this.snackBarService.openSnackBar('Error in calling mouse click');
+       }
       });
-}
+  }
 
+  makePopup(e) : any{
+  return   L.popup()
+          .setLatLng(e.latlng)
+          .setContent(`<b>[Lat/Long]<br>[${e.latlng.lat}, ${e.latlng.lng}] </b> 
+          <br> ${this.isNullEmptyOrUndefined(this.weather.getWeatherData())  ?
+              `${this.printWeather()} <br> ${this.printGeoData()}` : 'Weather data is not defined'}`
+          );
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+   getAPIData(): Observable<any>{
+    return forkJoin(this.weather.weatherHTTPGet(), this.georeverse.geoReverseHTTPGet());
+  }
+  
   private isNullEmptyOrUndefined(val : any[]) : boolean {
     // as val will change into a Object type length becomes undefined
       return (val !== null && val !== undefined && val.length === undefined) ? true : false;
@@ -153,7 +163,7 @@ loginUser(){
     this.map = L.map('map', {
       //UWB lat long: 47.759215471734, -122.190639104652
       // Rough US center based on https://www.findlatitudeandlongitude.com/?loc=center+of+the+united+states
-      center: this.weather.coordinateVals,
+      center: L.latLng(this.weather.coordinateVals[0], this.weather.coordinateVals[1]),
       zoom: 5
     });
   }
@@ -199,7 +209,7 @@ loginUser(){
   }
   
   private printGeoData() : string {
-    var geoData = `<br> The following geodata information has been retrived:<br><br>`
+    var geoData = `<br> The following geodata information has been retrieved:<br><br>`
     // console.log('print: ' + this.georeverse.getGeoData());
     if(this.georeverse.getGeoData().display_name) {
       geoData += `<b>Address: </b> ${this.georeverse.getGeoData().display_name}<br>` 

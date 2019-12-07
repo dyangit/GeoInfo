@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ReversegeosearchService } from './reversegeosearch.service';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +10,6 @@ export class WeatherService  {
   public coordinateVals = [ 42.877742, -97.380979 ];
 
   constructor(private http : HttpClient) {
-
     this.http.get(this.APIKEY).subscribe({
       next: (res: any) => {
         this.APIKEY = res.APIKEY
@@ -19,20 +18,14 @@ export class WeatherService  {
         console.log('error in http client')
       },
       complete: () => {
-          this.getWeatherFromLatLon();
+          this.weatherHTTPGet();
       },
     });
   }
-
-  getWeatherFromLatLon()  {
-    // console.log('center: ' + this.coordinateVals);
+  
+  async weatherHTTPGet(){
     var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' 
     + this.coordinateVals[0] + '&lon=' + this.coordinateVals[1] + '&units=imperial&' + this.APIKEY;
-    
-    this.weatherHTTPGet(url);
-  }
-  
-  weatherHTTPGet(url : string){
     // console.log("url: " + url);
     return this.http.get<any[]>(url).subscribe({
       next: (data ) => {
@@ -42,6 +35,7 @@ export class WeatherService  {
         console.log('error in http get ')
       },
       complete: () => {
+        //  console.log('finished getting weather');
         // if(this.weatherData)
         //   console.log('weatherData: ' + JSON.stringify(this.weatherData));
       },

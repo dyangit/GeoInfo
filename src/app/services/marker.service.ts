@@ -19,7 +19,7 @@ export class MarkerService {
   static scaledRadius(val: number, maxVal: number): number {
     return 20 * (val / maxVal);
   }
-  makeCapitalMarkers(map: L.map): void {
+  makeCapitalMarkers(map: any): void {
     
     this.http.get(this.capitals).subscribe((res: any) => {
       const maxVal = Math.max(...res.features.map(x => x.properties.population), 0);

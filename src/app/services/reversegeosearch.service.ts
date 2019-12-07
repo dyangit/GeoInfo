@@ -10,28 +10,25 @@ export class ReversegeosearchService {
   
   constructor(private http : HttpClient) {
     this.geoData = [];
+    this.coords = [ 42.877742, -97.380979 ];
+    this.geoReverseHTTPGet();
    }
 
-   getGeoReverseFromLatLon()  {
-    // console.log('center: ' + this.coordinateVals);
+  async geoReverseHTTPGet(){
     var url = 'https://nominatim.openstreetmap.org/reverse?format=json&lat=' 
     + this.coords[0] + '&lon=' + this.coords[1] + '&zoom=18&addressdetails=1';
-    //console.log('geo url: ' + url);
-    this.geoReverseHTTPGet(url);
-  }
-
-  geoReverseHTTPGet(url : string){
     // console.log("url: " + url);
     return this.http.get<any[]>(url).subscribe({
-      next: (data ) => {
+      next: (data) => {
         this.geoData = JSON.parse(JSON.stringify(data));
       },
       error: () => {
-        console.log('error in http get ')
+        console.log('error in http get ');
       },
       complete: () => {
-        //console.log(this.geoData);
-        //console.log(JSON.stringify(this.geoData));
+        //console.log('finished getting geodata');
+        // console.log(this.geoData);
+        // console.log(JSON.stringify(this.geoData));
       },
     });
   }
