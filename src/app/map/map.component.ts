@@ -72,7 +72,7 @@ export class MapComponent implements OnInit, AfterViewInit {
         url: 'https://hfzw9aa9dl.execute-api.us-west-2.amazonaws.com/prod/logging-function?username=' + self.usernameService.username 
         + '&longitude=' 
         + e.latlng.lng + '&latitude=' 
-        + e.latlng + '&PID=' 
+        + e.latlng.lat + '&PID=' 
         + uuidv4(),
         success: function(result) {
           //console.log('ajax call result' + result);

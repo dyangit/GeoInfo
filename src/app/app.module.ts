@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatDialogModule, MatInputModule,
-   MatIconModule, MatTooltipModule, MatSnackBarModule} from '@angular/material';
+         MatIconModule, MatTooltipModule, MatSnackBarModule, MatTableModule,
+        MatPaginatorModule, MatSortModule } from '@angular/material';
 
 // Services
 import { MarkerService } from './services/marker.service';
@@ -19,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 
 // Others
 import 'hammerjs';
+import { SearchHistoryDialogComponent } from './search-history-dialog/search-history-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +28,19 @@ import 'hammerjs';
     MapComponent,
     DialogOptionsComponent,
     LoginComponent,
+    SearchHistoryDialogComponent,
   ],
   entryComponents:[
     DialogOptionsComponent,
-    LoginComponent
+    LoginComponent,
+    SearchHistoryDialogComponent
   ],
   imports: [
     FormsModule,
     BrowserAnimationsModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatTableModule,
     MatSnackBarModule,
     MatTooltipModule,
     MatButtonModule,

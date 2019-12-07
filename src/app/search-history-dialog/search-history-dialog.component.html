@@ -1,0 +1,33 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<!-- Username Column -->
+<ng-container matColumnDef="username">
+<th mat-header-cell *matHeaderCellDef> Username </th>
+<td mat-cell *matCellDef="let element"> {{element.username}} </td>
+</ng-container>
+
+<!-- Latitude Column -->
+<ng-container matColumnDef="latitude">
+    <th mat-header-cell *matHeaderCellDef> Latitude </th>
+    <td mat-cell *matCellDef="let element"> {{element.lat}} </td>
+</ng-container>
+
+<!-- Longitude Column -->
+<ng-container matColumnDef="longitude">
+    <th mat-header-cell *matHeaderCellDef> Longitude </th>
+    <td mat-cell *matCellDef="let element"> {{element.lon}} </td>
+</ng-container>
+
+<!-- Pid Column -->
+<ng-container matColumnDef="pid">
+    <th mat-header-cell *matHeaderCellDef> PID </th>
+    <td mat-cell *matCellDef="let element"> {{element.pid}} </td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Paging Options  -->
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+

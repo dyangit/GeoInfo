@@ -1,10 +1,18 @@
 import { SnackbarService } from './../services/snackbar.service';
-import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Inject} from '@angular/core';
+import { SearchHistoryDialogComponent } from '../search-history-dialog/search-history-dialog.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import * as $ from 'jquery';
 
 export interface DialogData {
   name: string;
+}
+
+export interface SearchResultData {
+  username: string;
+  pid: string;
+  lat: string;
+  lon: string;
 }
 
 const searchHistoryS3Link = 'https://css436-test.s3-us-west-2.amazonaws.com/userSearchHistory.txt';
@@ -17,14 +25,20 @@ const searchHistoryS3Link = 'https://css436-test.s3-us-west-2.amazonaws.com/user
 
 
 export class DialogOptionsComponent implements OnInit {
+  public searchData : SearchResultData[];
   getValue = '';
   deleteValue = '';
+
+
   constructor(
     public dialogRef: MatDialogRef<DialogOptionsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private snackbarService : SnackbarService) { }
+    private snackbarService : SnackbarService,
+    private dialog : MatDialog) { }
     
     ngOnInit() {
+      // Initialize array
+      this.searchData = [];
     }
     
     onNoClick(): void {
@@ -56,9 +70,7 @@ export class DialogOptionsComponent implements OnInit {
       },
         success: function(result) {
           self.snackbarService.openSnackBar('Successfully got user search history!');
-          console.log('results for search: ' + result);
-          console.log('results for search: ' + JSON.stringify(result));
-          // TODO: DISPLAY RESULTS...?
+          self.displaySearchResults(JSON.stringify(result));
           $("#loaded").html("&#9989;");
           $("#cleared").html("");
         },
@@ -69,6 +81,31 @@ export class DialogOptionsComponent implements OnInit {
         },
         crossDomain : true
       });
+    }
+
+    
+    displaySearchResults(result: string) {
+      // console.log(result);
+      JSON.parse(result).forEach(data => {
+        this.searchData.push({
+        username: data.username,
+        pid: data.PID,
+        lat: data.latitude,
+        lon: data.longitude
+        })
+      });
+
+      const dialogRef = this.dialog.open(SearchHistoryDialogComponent, {
+        width: '1000px',
+        data: this.searchData
+      });
+      // After closed result
+      dialogRef.afterClosed().subscribe(result => {
+      });
+
+      // this.searchData.forEach(e => {
+      //   console.log('values of searchData' + JSON.stringify(e));
+      // });
     }
     
     // AJAX call for delete logs by specified username
