@@ -56,6 +56,8 @@ export class DialogOptionsComponent implements OnInit {
       },
         success: function(result) {
           self.snackbarService.openSnackBar('Successfully got user search history!');
+          console.log('results for search: ' + result);
+          console.log('results for search: ' + JSON.stringify(result));
           // TODO: DISPLAY RESULTS...?
           $("#loaded").html("&#9989;");
           $("#cleared").html("");
