@@ -1,26 +1,34 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<mat-form-field>
+        <input matInput (keyup)="applyFilter(filterValue)"  [(ngModel)]="filterValue" placeholder="Filter table by a specified value">
+        <button mat-button *ngIf='filterValue' matSuffix mat-icon-button aria-label="Clear" (click)="clearFilterValue()">
+                <mat-icon matTooltip='Clear search'>close</mat-icon>
+        </button>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
 <!-- Username Column -->
 <ng-container matColumnDef="username">
-<th mat-header-cell *matHeaderCellDef> Username </th>
+<th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
 <td mat-cell *matCellDef="let element"> {{element.username}} </td>
 </ng-container>
 
 <!-- Latitude Column -->
-<ng-container matColumnDef="latitude">
-    <th mat-header-cell *matHeaderCellDef> Latitude </th>
+<ng-container matColumnDef="latitude" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Latitude </th>
     <td mat-cell *matCellDef="let element"> {{element.lat}} </td>
 </ng-container>
 
 <!-- Longitude Column -->
 <ng-container matColumnDef="longitude">
-    <th mat-header-cell *matHeaderCellDef> Longitude </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Longitude </th>
     <td mat-cell *matCellDef="let element"> {{element.lon}} </td>
 </ng-container>
 
 <!-- Pid Column -->
 <ng-container matColumnDef="pid">
-    <th mat-header-cell *matHeaderCellDef> PID </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> PID </th>
     <td mat-cell *matCellDef="let element"> {{element.pid}} </td>
 </ng-container>
 
@@ -29,5 +37,5 @@
 </table>
 
 <!-- Paging Options  -->
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 
