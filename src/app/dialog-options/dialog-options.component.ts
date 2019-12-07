@@ -7,6 +7,8 @@ export interface DialogData {
   name: string;
 }
 
+const searchHistoryS3Link = 'https://css436-test.s3-us-west-2.amazonaws.com/userSearchHistory.txt';
+
 @Component({
   selector: 'app-dialog-options',
   templateUrl: './dialog-options.component.html',
@@ -28,6 +30,10 @@ export class DialogOptionsComponent implements OnInit {
     onNoClick(): void {
       this.dialogRef.close();
       this.snackbarService.openSnackBar('You closed the options dialog');
+    }
+
+    viewAllLogs(){
+      window.open(searchHistoryS3Link, "_blank");
     }
 
     // AJAX call to GET logs by a username

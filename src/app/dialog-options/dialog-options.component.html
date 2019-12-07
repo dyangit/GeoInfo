@@ -20,8 +20,7 @@
             <mat-icon matTooltip='Clear search'>close</mat-icon>
         </button>
     </mat-form-field>
+    <button mat-raised-button color="primary" matTooltip='Links to public S3 file link for user searches' (click)='viewAllLogs()'>View search logs</button>
     <button mat-raised-button color="warn" matTooltip='DELETES ALL stored searches' (click)='deleteAllLogs()'>DELETE ALL SEARCHES</button>
-</div>
-<div mat-dialog-actions>
-  <button mat-raised-button color="primary" matTooltip='Close dialog box' (click)="onNoClick()">Close dialog</button>
+    <button mat-raised-button color="primary" matTooltip='Close dialog box' (click)="onNoClick()">Close dialog</button>
 </div>
