@@ -161,7 +161,7 @@ loginUser(){
      const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
        // Max zoom is 18 https://leafletjs.com/reference-1.6.0.html#tilelayer-option
        maxZoom: 18,
-       attribution: 'Map tiles provided by &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> made by Daniel Yan & Melroy Dsouza'
+       attribution: 'Map tiles provided by &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <br> Made by <a href="https://github.com/Dudedmn">Daniel Yan</a> & <a href="https://github.com/mdsouza176">Melroy Dsouza</a>'
      });
      
      tiles.addTo(this.map);
