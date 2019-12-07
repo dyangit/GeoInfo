@@ -46,7 +46,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   constructor(private marker : MarkerService,
               private weather : WeatherService,
               private georeverse : ReversegeosearchService,
-              private usernameService : UsernameService,
+              public usernameService : UsernameService,
               private dialog : MatDialog) {}
 
   ngOnInit() {
