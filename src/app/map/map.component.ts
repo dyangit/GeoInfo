@@ -211,9 +211,10 @@ loginUser(){
   private printGeoData() : string {
     var geoData = `<br> The following geodata information has been retrieved:<br><br>`
     // console.log('print: ' + this.georeverse.getGeoData());
-    if(this.georeverse.getGeoData().display_name) {
+    if(this.georeverse.getGeoData().display_name)
       geoData += `<b>Address: </b> ${this.georeverse.getGeoData().display_name}<br>` 
-    }
+    else
+      geoData = 'Geodata couldn\'t be retrieved for this area';
     return geoData;
   }
 }
