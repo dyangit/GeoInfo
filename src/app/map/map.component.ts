@@ -52,7 +52,34 @@ export class MapComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     // console.log("map component init");
   }
+
   
+
+openOptions(): void {
+  const dialogRef = this.dialog.open(DialogOptionsComponent, {
+    width: '400px',
+    data: {
+      name: this.usernameService.username
+    }
+  });
+  // After closed result
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
+
+loginUser(){
+  const dialogRef = this.dialog.open(LoginComponent, {
+    width: '400px',
+    data: {
+      name: this.usernameService.username
+    }
+  });
+  // After closed result
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
+ 
+// Map functionalities
   ngAfterViewInit(){
     this.loadMap();
     this.map.on('click', (e) => {
@@ -117,30 +144,6 @@ export class MapComponent implements OnInit, AfterViewInit {
       });
 }
 
-
-openOptions(): void {
-  const dialogRef = this.dialog.open(DialogOptionsComponent, {
-    width: '400px',
-    data: {
-      name: this.usernameService.username
-    }
-  });
-  // After closed result
-  dialogRef.afterClosed().subscribe(result => {
-  });
-}
-
-loginUser(){
-  const dialogRef = this.dialog.open(LoginComponent, {
-    width: '400px',
-    data: {
-      name: this.usernameService.username
-    }
-  });
-  // After closed result
-  dialogRef.afterClosed().subscribe(result => {
-  });
-}
   private isNullEmptyOrUndefined(val : any[]) : boolean {
     // as val will change into a Object type length becomes undefined
       return (val !== null && val !== undefined && val.length === undefined) ? true : false;
@@ -167,6 +170,8 @@ loginUser(){
      tiles.addTo(this.map);
      this.marker.makeCapitalMarkers(this.map);
   }
+
+  // Prints
 
   // Print particular weather attributes
   private printWeather() : string {
