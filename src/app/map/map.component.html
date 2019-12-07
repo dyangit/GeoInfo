@@ -1,5 +1,8 @@
 <div class="map-container">
   <div class="map-frame">
+      <div class="leaflet-bottom leaflet-left">
+        Currently logged in as: <b>{{this.usernameService.username}}</b>
+      </div>
       <div class="leaflet-top leaflet-right">
           <button mat-raised-button color="primary" (click)="loginUser()"> Login </button>
           <button mat-raised-button color="primary" (click)="openOptions()"> Options </button>
