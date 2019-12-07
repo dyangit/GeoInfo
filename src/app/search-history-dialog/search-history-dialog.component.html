@@ -1,4 +1,4 @@
-
+<!-- Filter search field -->
 <mat-form-field>
         <input matInput (keyup)="applyFilter(filterValue)"  [(ngModel)]="filterValue" placeholder="Filter table by a specified value">
         <button mat-button *ngIf='filterValue' matSuffix mat-icon-button aria-label="Clear" (click)="clearFilterValue()">
