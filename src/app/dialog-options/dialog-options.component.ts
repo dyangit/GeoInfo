@@ -42,6 +42,18 @@ export class DialogOptionsComponent implements OnInit {
       var self = this;
       $.ajax({
         url: 'https://hfzw9aa9dl.execute-api.us-west-2.amazonaws.com/prod/get_log_data?username=' + username,
+        // Hard-coded some status codes as AJAX error reporting seems overly sensitive        
+        statusCode: {
+          200: function(){
+            self.snackbarService.openSnackBar('Successfully got user search history!');             
+          },
+          403: function(){
+            self.snackbarService.openSnackBar('Error in deleting retrieving user search history, returned HTTP code 403');
+          },
+          404: function(){
+            self.snackbarService.openSnackBar('Error in deleting retrieving user  search history, returned HTTP code 404');
+          }
+      },
         success: function(result) {
           self.snackbarService.openSnackBar('Successfully got user search history!');
           // TODO: DISPLAY RESULTS...?
@@ -49,6 +61,7 @@ export class DialogOptionsComponent implements OnInit {
           $("#cleared").html("");
         },
         error: function(error) {
+          // console.log('error in getLogsByUsername(): ' + JSON.stringify(error));
           self.snackbarService.openSnackBar('Error in retrieving user search history');
           $("#loaded").html("&#10060;");
         },
@@ -58,16 +71,27 @@ export class DialogOptionsComponent implements OnInit {
     
     // AJAX call for delete logs by specified username
     deleteLogsByUsername(username : string){
-      // AJAX uses this instance to represent AJAX object not class instance, copying class instance to local var
       var self = this;
       $.ajax({
         url: 'https://hfzw9aa9dl.execute-api.us-west-2.amazonaws.com/prod/remove_logs_for_user?username=' + username,
+        statusCode: {
+          200: function(){
+            self.snackbarService.openSnackBar('Successfully deleted user search history!');             
+          },
+          403: function(){
+            self.snackbarService.openSnackBar('Error in deleting user search history, returned HTTP code 403');
+          },
+          404: function(){
+            self.snackbarService.openSnackBar('Error in deleting user search history, returned HTTP code 404');
+          }
+      },
         success: function(result) {
           self.snackbarService.openSnackBar('Successfully deleted user search history!');
           $("#loaded").html("&#9989;");
           $("#cleared").html("");
         },
         error: function(error) {
+          // console.log('error in deleteLogsByUsername(): ' + JSON.stringify(error));
           self.snackbarService.openSnackBar('Error in deleting user search history');
           $("#loaded").html("&#10060;");
         },
@@ -77,16 +101,27 @@ export class DialogOptionsComponent implements OnInit {
     
     // AJAX call for delete all logs
     deleteAllLogs(){
-      // AJAX uses this instance to represent AJAX object not class instance, copying class instance to local var
       var self = this;
       $.ajax({
         url: 'https://hfzw9aa9dl.execute-api.us-west-2.amazonaws.com/prod/remove_all_logs',
+        statusCode: {
+            200: function(){
+              self.snackbarService.openSnackBar('Successfully deleted all search history!');             
+            },
+            403: function(){
+              self.snackbarService.openSnackBar('Error in deleting all search history, returned HTTP code 403');
+            },
+            404: function(){
+              self.snackbarService.openSnackBar('Error in deleting all search history, returned HTTP code 404');
+            }
+        },
         success: function(result) {
           self.snackbarService.openSnackBar('Successfully deleted all search history!');
           $("#loaded").html("&#9989;");
           $("#cleared").html("");
         },
         error: function(error) {
+          // console.log('error in deleteAllLogs(): ' + JSON.stringify(error));
           self.snackbarService.openSnackBar('Error in deleting all search history');
           $("#loaded").html("&#10060;");
         },
