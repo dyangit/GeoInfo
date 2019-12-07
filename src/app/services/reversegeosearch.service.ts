@@ -9,6 +9,7 @@ export class ReversegeosearchService {
   private coords : any[];
   
   constructor(private http : HttpClient) {
+    this.geoData = [];
    }
 
    getGeoReverseFromLatLon()  {
