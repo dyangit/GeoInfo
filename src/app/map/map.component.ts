@@ -25,7 +25,7 @@ declare var require: any;
 
 // UUID configuration
 const uuidv4 = require('uuid/v4');
-
+const defaultCoords = [ 42.877742, -97.380979 ];
 // Setting marker
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
@@ -85,6 +85,16 @@ loginUser(){
   // After closed result
   dialogRef.afterClosed().subscribe(result => {
   });
+}
+
+logoutUser() {
+  console.log(this.usernameService.username);
+  if(this.usernameService.username === 'guest')
+    this.snackBarService.openSnackBar('Please login first.');
+  else{
+    this.snackBarService.openSnackBar('You have logged out of \''+ this.usernameService.username + '\'');
+    this.usernameService.username = 'guest';
+  }
 }
 
 openHelp(){
@@ -182,9 +192,10 @@ openHelp(){
     this.map = L.map('map', {
       //UWB lat long: 47.759215471734, -122.190639104652
       // Rough US center based on https://www.findlatitudeandlongitude.com/?loc=center+of+the+united+states
-      center: L.latLng(this.weather.coordinateVals[0], this.weather.coordinateVals[1]),
+      center: L.latLng(defaultCoords[0], defaultCoords[1]),
       zoom: 5
     });
+    L.control.scale().addTo(this.map);
   }
 
   private loadMap() {
@@ -192,12 +203,18 @@ openHelp(){
      this.initMap();
      const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
        // Max zoom is 18 https://leafletjs.com/reference-1.6.0.html#tilelayer-option
+       minZoom: 2,
        maxZoom: 18,
        attribution: 'Map tiles provided by &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <br> Made by <a href="https://github.com/Dudedmn">Daniel Yan</a> & <a href="https://github.com/mdsouza176">Melroy Dsouza</a>'
      });
      
      tiles.addTo(this.map);
      this.marker.makeCapitalMarkers(this.map);
+     this.openHelp();
+  }
+
+  private resetZoom(){
+    this.map.setView(L.latLng(defaultCoords[0], defaultCoords[1]), 5);
   }
 
   // Prints for popups

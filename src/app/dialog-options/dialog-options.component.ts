@@ -40,7 +40,6 @@ export class DialogOptionsComponent implements OnInit {
     
     onNoClick(): void {
       this.dialogRef.close();
-      this.snackbarService.openSnackBar('You closed the options dialog');
     }
 
     viewAllLogs(){

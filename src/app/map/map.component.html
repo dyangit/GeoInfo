@@ -2,11 +2,13 @@
   <div class="map-frame">
       <div class="leaflet-bottom leaflet-left">
         Currently logged in as: <b>{{this.usernameService.username}}</b>
+        <button mat-raised-button color="primary" (click)="logoutUser()" matTooltip='Logout current username'> Logout </button>
       </div>
       <div class="leaflet-top leaflet-right">
+          <button mat-raised-button color="primary" (click)="resetZoom()"  matTooltip='Reset Zoom to the default level' > Reset Zoom </button>
           <button mat-raised-button color="primary" (click)="loginUser()" matTooltip='This button is to change usernames. Click on the help button for more information'> Login </button>
-          <button mat-raised-button color="primary" (click)="openOptions()"  matTooltip='This button is to select user options. Click on the help button for more information' > Options </button>
-          <button mat-raised-button color="primary" matSuffix mat-icon-button aria-label="Help" (click)="openHelp()">
+          <button mat-raised-button color="primary" (click)="openOptions()"  matTooltip='This button is to mange user logs. Click on the help button for more information' > Manage Logs </button>
+          <button mat-raised-button color="primary" matSuffix mat-icon-button aria-label="Help" (click)="openHelp()"> Help
               <mat-icon matTooltip='Need help? Click me!'>help</mat-icon>
           </button>
       </div>

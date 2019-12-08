@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Hi, <b>{{data.name}}</b>. This is the <b>login</b> dialog</h1>
+<h1 mat-dialog-title>Hi, <b>{{data.name}}</b>.
 <div mat-dialog-content>
   <p>Enter the username you wish to login with </p>
   <mat-form-field class="input-width">
@@ -10,6 +10,6 @@
         <mat-icon matTooltip='Clear search'>close</mat-icon>
     </button>
 </mat-form-field>
-    <button mat-raised-button color="warn" matTooltip='Sets username to default value' (click)="defaultUsername()">Logout user</button>
-    <button mat-raised-button color="primary" matTooltip='Close dialog box' (click)="onNoClick()">Close dialog</button>
+    <button mat-raised-button color="warn" matTooltip='Sets username to inputted value' (click)="setUsername(userValue)">Login</button>
+    <button mat-raised-button color="primary" (click)="onNoClick()">Close</button>
 </div>

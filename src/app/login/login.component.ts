@@ -25,17 +25,11 @@ export class LoginComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
-    this.snackbarService.openSnackBar('You closed the login dialog');
-  }
-  
-  defaultUsername() {
-    this.usernameService.username = 'guest';
-    this.snackbarService.openSnackBar('Username has been set to \'' + this.usernameService.username + '\'');
   }
   
   setUsername(username : string) {    
     this.usernameService.username = username;
-    this.snackbarService.openSnackBar('You set username to \'' + this.usernameService.username + '\'');
+    this.snackbarService.openSnackBar('You set username to \'' + this.usernameService.username + '\'. Please close the dialog.');
   }
 
 }

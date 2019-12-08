@@ -27,7 +27,7 @@ export class WeatherService  {
   }
   
   async weatherHTTPGet(){
-    var url = 'http://api.openweathermap.org/data/2.5/weather?lat=' 
+    var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' 
     + this.coordinateVals[0] + '&lon=' + this.coordinateVals[1] + '&units=imperial&' + this.APIKEY;
     // console.log("url: " + url);
     return this.http.get<any[]>(url).subscribe({

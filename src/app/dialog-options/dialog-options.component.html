@@ -1,6 +1,5 @@
-<h1 mat-dialog-title>Hi, <b>{{data.name}}</b>. This is the <b>options</b> dialog</h1>
+<h1 mat-dialog-title>Hi, <b>{{data.name}}</b>.
 <div mat-dialog-content>
-  <p>Choose which action you would like to perform.</p>
   <p>Hover over an option for more information.</p>
   <mat-form-field class="input-width">
     <input matInput placeholder="GET username history" [(ngModel)]="getValue" matTooltip='Enter a username to GET stored searches for that username'> 
@@ -20,7 +19,7 @@
             <mat-icon matTooltip='Clear search'>close</mat-icon>
         </button>
     </mat-form-field>
-    <button mat-raised-button color="primary" matTooltip='Links to public S3 file link for user searches' (click)='viewAllLogs()'>View search logs</button>
+    <button mat-raised-button color="primary" matTooltip='Links to public cloud storage file link for user searches' (click)='viewAllLogs()'>View search logs</button>
     <button mat-raised-button color="warn" matTooltip='DELETES ALL stored searches' (click)='deleteAllLogs()'>DELETE ALL SEARCHES</button>
-    <button mat-raised-button color="primary" matTooltip='Close dialog box' (click)="onNoClick()">Close dialog</button>
+    <button mat-raised-button color="primary" (click)="onNoClick()">Close </button>
 </div>

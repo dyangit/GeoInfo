@@ -1,29 +1,32 @@
 <h1 mat-dialog-title>Hi, <b>{{data.name}}</b>. This is the <b>help</b> dialog</h1>
 <div mat-dialog-content>
     <h1> Overview </h1>
-    <ul>
-        <li>Ever wanted to simply know what’s it like in the middle of the Pacific Ocean? Or in the middle of Antarctica? Or somewhere you chose completely at random? 
-            Fear not as <b>GeoInfo</b> provides you as the user the ability to click anywhere on the global map to generate useful information of that current location.</li>
-        <li>On each each click, the user should receive a popup notification showing the retrieved latitude and longitude, current data for that point, and geodata address. </li>
-        <li>Additionally for each click the user makes, based on the username, the query is stored in AWS services and is retrievable or deletable as the user wishes.</li>
-    </ul>
+    <p>Ever wanted to simply know what’s it like in the middle of the Pacific Ocean? Or in the middle of Antarctica? Or somewhere you chose completely at random?</p>
+    <p><b>GeoInfo</b> provides you the ability to click anywhere on the map to generate useful current information for that area.</p>             
     <h1> Features </h1>
+    <h2> Map</h2>
+    <ul>
+        <li>On each each click, that is not on a marker, you should receive a popup notification showing the lat/long, current weather for that point, and geodata address. </li>
+        <li>Additionally for each click you make, based on the username, the query is stored in the Cloud through AWS services and is retrievable or deletable as you wish.</li>
+    </ul>
     <h2> Username Login </h2>
-    <p> To change the username that you wish to store in the search history, click the Login button the map, which has this appearance: </p>
+    <p> To change the username that you wish to store in the search history, click the 'Login' button the map, which has this appearance: </p>
     <button mat-raised-button color="primary" matTooltip='This button is just for demonstration'> Login </button>
-    <h2> User Options</h2>
-    <p> To view the user search history, or delete the user search history, click the Options button the map, which has this appearance: </p>
-    <button mat-raised-button color="primary" matTooltip='This button is just for demonstration'> Options </button>
+    <h2> User Log Management</h2>
+    <p> To view a user's search history, or delete a user's search history, click the 'Manage Logs' button, which has this appearance: </p>
+    <button mat-raised-button color="primary" matTooltip='This button is just for demonstration'> Manage Logs </button>
     <p> Both options have tooltip hover boxes to further give additional information as needed for each of the options they provide.</p>
     <h2> Known Issues </h2>
     <p> These are known issues with the web application that the developers know about and are fixing</p>
     <ul>
         <li>Due to HTTP call lags, clicks on the map will typically be 'one-click-behind' with the popup message displaying prior click information.
             To fix this issue, simply double click on the intended area you wish to get information from.</li>
+        <li>The markers are not dynamically adjusted to a zoomed out map tile. To get around this issue, zoom back in to the initial state or click the 'Reset Zoom' button.</li>    
     </ul>
     <h2> Potential Additional Features </h2>
     <p> There are a lot of additional extensions that this web application can have, a few potential features have been listed below</p>
     <ul>
+            <li>Capital State Markers display all the information that a click would give.</li>
             <li>Markers displaying information on the entire World's State Capitals.</li>
             <li>Polygon shading to demonstrate the bounding region of the retrieved geo data.</li>
             <li>Retrieval additional information such as local news based on retrieved city name.</li>
