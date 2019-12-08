@@ -88,7 +88,6 @@ loginUser(){
 }
 
 logoutUser() {
-  console.log(this.usernameService.username);
   if(this.usernameService.username === 'guest')
     this.snackBarService.openSnackBar('Please login first.');
   else{
