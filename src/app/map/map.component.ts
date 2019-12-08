@@ -212,7 +212,7 @@ openHelp(){
      this.openHelp();
   }
 
-  private resetZoom(){
+  public resetZoom(){
     this.map.setView(L.latLng(defaultCoords[0], defaultCoords[1]), 5);
   }
 
