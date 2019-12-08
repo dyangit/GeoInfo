@@ -14,7 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class SearchHistoryDialogComponent implements OnInit {
   filterValue = '';
 
-  displayedColumns: string[] = ['username', 'latitude', 'longitude', 'pid'];
+  displayedColumns: string[] = ['username', 'latitude', 'longitude', 'uuid'];
   dataSource =  new MatTableDataSource<SearchResultData>([]);
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;

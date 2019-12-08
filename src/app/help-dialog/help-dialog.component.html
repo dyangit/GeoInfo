@@ -15,13 +15,19 @@
     <h2> User Log Management</h2>
     <p> To view a user's search history, or delete a user's search history, click the 'Manage Logs' button, which has this appearance: </p>
     <button mat-raised-button color="primary" matTooltip='This button is just for demonstration'> Manage Logs </button>
+    <ul>
+        <li> If you use the GET username history function, a table will be pop up with the retrieved user data</li>
+        <li> The table will display the following attributes: Usernamme, Latitude, Longitude, and UUID</li>
+        <li> UUID refers to a uniquely generated string for every single search</li>
+    </ul>
     <p> Both options have tooltip hover boxes to further give additional information as needed for each of the options they provide.</p>
     <h2> Known Issues </h2>
     <p> These are known issues with the web application that the developers know about and are fixing</p>
     <ul>
         <li>Due to HTTP call lags, clicks on the map will typically be 'one-click-behind' with the popup message displaying prior click information.
             To fix this issue, simply double click on the intended area you wish to get information from.</li>
-        <li>The markers are not dynamically adjusted to a zoomed out map tile. To get around this issue, zoom back in to the initial state or click the 'Reset Zoom' button.</li>    
+        <li>The markers are not dynamically adjusted to a zoomed out map tile. 
+            To get around this issue, zoom back in to the initial state or click the 'Reset Zoom' button.</li>    
     </ul>
     <h2> Potential Additional Features </h2>
     <p> There are a lot of additional extensions that this web application can have, a few potential features have been listed below</p>
