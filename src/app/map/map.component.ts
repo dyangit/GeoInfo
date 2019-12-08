@@ -188,22 +188,29 @@ openHelp(){
   }
 
   private initMap() {
+    var corner1 = L.latLng(85.04828470083633, -179.92309570312503),
+    corner2 = L.latLng(-85.12637270668026, 179.64843750000003),
+    bounds = L.latLngBounds(corner1, corner2);
     this.map = L.map('map', {
       //UWB lat long: 47.759215471734, -122.190639104652
       // Rough US center based on https://www.findlatitudeandlongitude.com/?loc=center+of+the+united+states
       center: L.latLng(defaultCoords[0], defaultCoords[1]),
+      maxBounds: bounds,
+      maxBoundsViscosity: 1.0,
       zoom: 5
     });
     L.control.scale().addTo(this.map);
+    // Prevent repeated invalid world copying
+    this.map.worldCopyJump = true;
   }
 
   private loadMap() {
      // Map div must exist in the DOM first
      this.initMap();
      const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-       // Max zoom is 18 https://leafletjs.com/reference-1.6.0.html#tilelayer-option
        minZoom: 2,
        maxZoom: 18,
+       noWrap: true,
        attribution: 'Map tiles provided by &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <br> Made by <a href="https://github.com/Dudedmn">Daniel Yan</a> & <a href="https://github.com/mdsouza176">Melroy Dsouza</a>'
      });
      
